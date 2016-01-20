@@ -35,7 +35,12 @@ class GridFieldHasOneRelationHandler extends GridFieldRelationHandler {
 		$state = $this->getState($gridField);
 		
 		$checked = $state->RelationVal == $record->ID;
-		$field = new ArrayData(array('Checked' => $checked, 'Value' => $record->ID, 'Name' => $this->relationName . 'ID'));
+		$field = new ArrayData(array(
+			'Checked' 	=> $checked,
+			'Value' 	=> $record->ID,
+			'Name' 		=> $this->relationName . 'ID',
+			'ID'		=> $record->ID
+		));
 		return $field->renderWith('GridFieldHasOneRelationHandlerItem');
 	}
 
