@@ -18,7 +18,12 @@ class GridFieldManyRelationHandler extends GridFieldRelationHandler implements G
 
 		$state = $this->getState($gridField);
 		$checked = in_array($record->ID, $state->RelationVal->toArray());
-		$field = array('Checked' => $checked, 'Value' => $record->ID, 'Name' => $this->relationName($gridField));
+		$field = array(
+			'Checked' 	=> $checked,
+			'Value' 	=> $record->ID,
+			'Name' 		=> $this->relationName($gridField),
+			'ID'		=> $record->ID
+		);
 		if($list instanceof HasManyList) {
 			$key = $record->{$this->cheatList->getForeignKey($list)};
 			if($key && !$checked) {
